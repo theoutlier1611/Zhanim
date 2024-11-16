@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Preloader logic
+    // Preloader
     const preloader = document.getElementById("preloader");
     const container = document.querySelector(".container");
 
@@ -9,19 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.from(container, { opacity: 0, duration: 1.5 });
     }, 2000);
 
-    // Unlock button functionality
+    // Unlock Gift Button
     const unlockButton = document.getElementById("unlock-button");
     const giftSection = document.getElementById("gift-section");
 
-    if (unlockButton) {
-        unlockButton.addEventListener("click", () => {
-            giftSection.classList.remove("hidden");
-            gsap.from(".gift-message", { opacity: 0, y: -50, duration: 1.5 });
-            unlockButton.style.display = "none";
-        });
-    }
+    unlockButton.addEventListener("click", () => {
+        giftSection.classList.remove("hidden");
+        gsap.from(giftSection, { opacity: 0, y: 50, duration: 1.5 });
+        unlockButton.style.display = "none";
+    });
 
-    // Timeline animations on scroll
+    // Scroll Animations for Timeline
     const timelineItems = document.querySelectorAll(".timeline-item");
     const controller = new ScrollMagic.Controller();
 
@@ -30,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             triggerElement: item,
             triggerHook: 0.9,
         })
-            .setTween(gsap.from(item, { opacity: 0, x: 100, duration: 1 }))
+            .setTween(gsap.from(item, { opacity: 0, y: 50, duration: 1.5 }))
             .addTo(controller);
     });
 });
