@@ -1,3 +1,4 @@
+alert("Ooh.. You touch my tralala..");
 // Unlock button functionality
 document.addEventListener("DOMContentLoaded", () => {
     const unlockButton = document.getElementById("unlock-button");
