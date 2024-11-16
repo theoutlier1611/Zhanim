@@ -1,13 +1,3 @@
-/* General Styles */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-    overflow-x: hidden;
-    color: #333;
-}
-
 /* Preloader */
 #preloader {
     position: fixed;
@@ -22,78 +12,37 @@ body {
     z-index: 1000;
     font-size: 1.5rem;
     color: #ff6f61;
-    animation: fadeOut 1s forwards ease 2s;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 #preloader.hidden {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 50px 20px;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    animation: fadeIn 2s ease-in-out;
-}
-
-header button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background: #ff6f61;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-header button:hover {
-    background: #e55b52;
-}
-
-/* Gift Section */
+/* Hidden Content */
 .hidden {
     display: none;
+    opacity: 0;
 }
 
-.gift-message {
-    text-align: center;
-    margin: 40px 0;
-    padding: 20px;
-    background: #ffe9e8;
-    border-radius: 10px;
-    animation: fadeIn 2s ease-in-out;
+/* Main Content */
+.container {
+    opacity: 1;
+    display: block;
+    transition: opacity 1s ease-in-out;
 }
 
-.confetti {
-    width: 100%;
-    height: 300px;
-    background: url('confetti.gif') no-repeat center center;
-    background-size: cover;
+/* Timeline Animation */
+.timeline-item {
+    opacity: 0;
+    transform: translateX(100px);
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
+.timeline-item.animate {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s ease-in-out;
 }
